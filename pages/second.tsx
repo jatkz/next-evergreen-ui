@@ -1,6 +1,121 @@
-import { Button, Pane, Text, majorScale } from "evergreen-ui";
+import {
+  Button,
+  Pane,
+  Text,
+  majorScale,
+  Card,
+  IconButton,
+  CogIcon,
+  TrashIcon,
+  TickIcon,
+  EditIcon,
+  ManualIcon,
+  SearchIcon,
+  CaretDownIcon,
+  Table,
+  PredictiveAnalysisIcon,
+} from "evergreen-ui";
 import Head from "next/head";
 import styles from "@/styles/Second.module.css";
+
+interface Strategy {
+  name: string;
+  id: string;
+  wins: number;
+  losses: number;
+  winrate: number;
+  net: number;
+  avgwin: number;
+  avgloss: number;
+  stdwin: number;
+  stdloss: number;
+}
+const strategies: Strategy[] = [
+  {
+    name: "Strategy 1",
+    id: "1",
+    wins: 10,
+    losses: 5,
+    winrate: 0.67,
+    net: 100,
+    avgwin: 10,
+    avgloss: 10,
+    stdwin: 10,
+    stdloss: 10,
+  },
+  {
+    name: "Strategy 2",
+    id: "2",
+    wins: 7,
+    losses: 3,
+    winrate: 0.67,
+    net: 100,
+    avgwin: 10,
+    avgloss: 5,
+    stdwin: 10,
+    stdloss: 3,
+  },
+  {
+    name: "Strategy 3",
+    id: "3",
+    wins: 7,
+    losses: 5,
+    winrate: 0.67,
+    net: 56,
+    avgwin: 10,
+    avgloss: 10,
+    stdwin: 10,
+    stdloss: 3,
+  },
+  {
+    name: "Strategy 4",
+    id: "3",
+    wins: 7,
+    losses: 5,
+    winrate: 0.67,
+    net: 56,
+    avgwin: 10,
+    avgloss: 10,
+    stdwin: 10,
+    stdloss: 3,
+  },
+  {
+    name: "Strategy 5",
+    id: "3",
+    wins: 7,
+    losses: 5,
+    winrate: 0.67,
+    net: 56,
+    avgwin: 10,
+    avgloss: 10,
+    stdwin: 10,
+    stdloss: 3,
+  },
+  {
+    name: "Strategy 6",
+    id: "3",
+    wins: 7,
+    losses: 5,
+    winrate: 0.67,
+    net: 56,
+    avgwin: 10,
+    avgloss: 10,
+    stdwin: 10,
+    stdloss: 3,
+  },
+  {
+    name: "Strategy 7",
+    id: "3",
+    wins: 7,
+    losses: 5,
+    winrate: 0.67,
+    net: 56,
+    avgwin: 10,
+    avgloss: 10,
+    stdwin: 10,
+    stdloss: 3,
+  },
+];
 
 export default function Second() {
   return (
@@ -12,30 +127,322 @@ export default function Second() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Pane className={styles.width}>
-          <Pane className={styles.horizontal}>
-            <Pane className={styles.halves}>
+        <Pane className={styles.horizontal}>
+          <Pane className={styles.half}>
+            <Pane className={styles.gridcontainer}>
               <Pane display="flex" alignItems="center" marginX={majorScale(2)}>
                 <Button>Click me!</Button>
                 <Text>This is a clickable Button</Text>
               </Pane>
-
-              <Pane display="flex" alignItems="center" marginX={majorScale(2)}>
-                <Button>Click me!</Button>
-                <Text>This is a clickable Button</Text>
+              <Pane>
+                <Pane
+                  display="flex"
+                  alignItems="center"
+                  marginX={majorScale(2)}
+                >
+                  <Button borderColor="pink">Click me!</Button>
+                </Pane>
+              </Pane>
+              <Pane>
+                <Pane
+                  display="flex"
+                  alignItems="center"
+                  marginX={majorScale(2)}
+                >
+                  <Button marginRight={16} intent="none">
+                    None
+                  </Button>
+                  <Button marginRight={16} intent="success">
+                    Success
+                  </Button>
+                  <Button marginRight={16} intent="danger">
+                    Danger
+                  </Button>
+                </Pane>
+              </Pane>
+              <Pane>
+                <Pane
+                  display="flex"
+                  alignItems="center"
+                  marginX={majorScale(2)}
+                >
+                  <Button marginY={8} marginRight={12} iconAfter={CogIcon}>
+                    Settings
+                  </Button>
+                  <Button marginY={8} marginRight={12} iconBefore={EditIcon}>
+                    Edit
+                  </Button>
+                  <Button marginY={8} marginRight={12} iconBefore={ManualIcon}>
+                    Docs
+                  </Button>
+                  <Button
+                    marginY={8}
+                    marginRight={12}
+                    iconBefore={TrashIcon}
+                    intent="danger"
+                  >
+                    Delete...
+                  </Button>
+                  <Button marginY={8} marginRight={12} iconBefore={SearchIcon}>
+                    Search
+                  </Button>
+                  <Button
+                    marginY={8}
+                    marginRight={12}
+                    iconAfter={CaretDownIcon}
+                  >
+                    Filter
+                  </Button>
+                </Pane>
+              </Pane>
+              <Pane>
+                <Pane
+                  display="flex"
+                  alignItems="center"
+                  marginX={majorScale(2)}
+                >
+                  <IconButton icon={CogIcon} marginRight={majorScale(2)} />
+                  <IconButton
+                    icon={TrashIcon}
+                    intent="danger"
+                    marginRight={majorScale(2)}
+                  />
+                  <IconButton icon={TickIcon} intent="success" />
+                </Pane>
               </Pane>
             </Pane>
-
-            <Pane className={styles.halves}>
-              <Pane display="flex" alignItems="center" marginX={majorScale(2)}>
-                <Button>Click me!</Button>
-                <Text>This is a clickable Button</Text>
-              </Pane>
-
-              <Pane display="flex" alignItems="center" marginX={majorScale(2)}>
-                <Button>Click me!</Button>
-                <Text>This is a clickable Button</Text>
-              </Pane>
+          </Pane>
+          <Pane className={styles.half}>
+            <Pane className={styles.gridcontainer}>
+              <Card
+                border="0.125rem solid"
+                borderColor="black"
+                background="tint1"
+                padding={majorScale(2)}
+                className={styles.max}
+              >
+                <Pane display="flex" alignItems="center">
+                  <Pane width={"100%"} className={styles.gridcontainer}>
+                    <Pane
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Pane>TSLA</Pane>
+                      <Pane>+$556</Pane>
+                    </Pane>
+                    <Pane
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Pane># 6sigma, easy, wide</Pane>
+                      <Pane>Score: 656</Pane>
+                    </Pane>
+                  </Pane>
+                </Pane>
+              </Card>
+              <Card
+                border="0.125rem solid"
+                borderColor="black"
+                background="tint1"
+                padding={majorScale(2)}
+                height={400}
+              >
+                <Pane display="flex" alignItems="center">
+                  <Pane width={"100%"} className={styles.gridcontainer}>
+                    <Pane
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Pane>TSLA</Pane>
+                      <Pane>+$556</Pane>
+                    </Pane>
+                    <Pane
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Pane># 6sigma, easy, wide</Pane>
+                      <Pane>Score: 656</Pane>
+                    </Pane>
+                  </Pane>
+                </Pane>
+              </Card>
+              <Card
+                border="0.125rem solid"
+                borderColor="black"
+                background="tint1"
+                padding={majorScale(2)}
+                className={styles.max}
+              >
+                <Pane display="flex" alignItems="center">
+                  <Pane width={"100%"} className={styles.gridcontainer}>
+                    <Pane
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Pane>RSI ZONE</Pane>
+                      <Pane>7 RSI SPIKES</Pane>
+                      <Pane>5 COILED SPRING</Pane>
+                      <Pane>5 LINEAR LEG</Pane>
+                      <Pane>56% GRID STRENTH</Pane>
+                    </Pane>
+                    <Pane
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Pane>MACD CURBE</Pane>
+                      <Pane>2/4 MACD ARCS</Pane>
+                      <Pane>7 RANGES</Pane>
+                      <Pane>17u LINEAR VOLATILITY</Pane>
+                      <Pane>SAME</Pane>
+                    </Pane>
+                    <Pane
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Pane>VOLATILITY</Pane>
+                      <Pane>33% VOLATILITY BARS</Pane>
+                      <Pane>2.5/1.3 EXIT SPREAD</Pane>
+                      <Pane>SAME</Pane>
+                      <Pane>SAME</Pane>
+                    </Pane>
+                    <Pane
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Pane>VOL PUMP</Pane>
+                      <Pane>9/5% VOL LEGS</Pane>
+                      <Pane>16/25% IN LOSS</Pane>
+                      <Pane>6%u shift</Pane>
+                      <Pane>SAME</Pane>
+                    </Pane>
+                    <Pane
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Pane>PRICE SWING</Pane>
+                      <Pane>33%/7% PRICE PUMPS</Pane>
+                      <Pane>10/3 WALK LENGTH</Pane>
+                      <Pane>7.5u/6.3o EXIT SPREAD</Pane>
+                      <Pane>SAME</Pane>
+                    </Pane>
+                  </Pane>
+                </Pane>
+              </Card>
+              <Card
+                border="0.125rem solid"
+                borderColor="black"
+                background="tint1"
+                padding={majorScale(2)}
+                className={styles.max}
+              >
+                <Pane display="flex" alignItems="center">
+                  <Table>
+                    <Table.Head>
+                      <Table.SearchHeaderCell
+                        onChange={(value) => console.log(value)}
+                        placeholder="Search by ..."
+                      />
+                      <Table.TextHeaderCell>WINS</Table.TextHeaderCell>
+                      <Table.TextHeaderCell>LOSSES</Table.TextHeaderCell>
+                      <Table.TextHeaderCell>WINRATE</Table.TextHeaderCell>
+                      <Table.TextHeaderCell>NET</Table.TextHeaderCell>
+                      <Table.TextHeaderCell>AVGWIN</Table.TextHeaderCell>
+                      <Table.TextHeaderCell>AVGLOSS</Table.TextHeaderCell>
+                    </Table.Head>
+                    <Table.Body height={240}>
+                      {strategies.map((strategy) => (
+                        <Table.Row
+                          key={strategy.id}
+                          isSelectable
+                          onSelect={() => alert(strategy.name)}
+                        >
+                          <Table.TextCell>{strategy.name}</Table.TextCell>
+                          <Table.TextCell isNumber>
+                            {strategy.wins}
+                          </Table.TextCell>
+                          <Table.TextCell isNumber>
+                            {strategy.losses}
+                          </Table.TextCell>
+                          <Table.TextCell isNumber>
+                            {strategy.winrate}
+                          </Table.TextCell>
+                          <Table.TextCell isNumber>
+                            {strategy.net}
+                          </Table.TextCell>
+                          <Table.TextCell isNumber>
+                            {strategy.avgwin}
+                          </Table.TextCell>
+                          <Table.TextCell isNumber>
+                            {strategy.avgloss}
+                          </Table.TextCell>
+                        </Table.Row>
+                      ))}
+                    </Table.Body>
+                  </Table>
+                </Pane>
+              </Card>
+              <Card
+                border="0.125rem solid"
+                borderColor="black"
+                background="tint1"
+                padding={majorScale(2)}
+                className={styles.max}
+              >
+                <Pane display="flex" alignItems="center">
+                  <Pane width={"100%"} className={styles.gridcontainer}>
+                    <Pane
+                      display="flex"
+                      justifyContent="space-between"
+                      flexDirection="column"
+                      alignItems="center"
+                    >
+                      <Text size={300}>
+                        TOTALS WINS=7 LOSSES=3 NET=556 AVGWIN=87 AVGLOSS=5
+                      </Text>
+                      <Pane
+                        display="flex"
+                        alignItems="center"
+                        marginX={majorScale(2)}
+                      >
+                        <Button
+                          marginRight={12}
+                          iconAfter={PredictiveAnalysisIcon}
+                        >
+                          More totals
+                        </Button>
+                        <Button marginRight={12} iconBefore={EditIcon}>
+                          Edit
+                        </Button>
+                        <Button marginRight={12} iconBefore={ManualIcon}>
+                          Docs
+                        </Button>
+                        <Button
+                          marginRight={12}
+                          iconBefore={TrashIcon}
+                          intent="danger"
+                        >
+                          Delete...
+                        </Button>
+                        <Button marginRight={12} iconBefore={SearchIcon}>
+                          Search
+                        </Button>
+                        <Button marginRight={12} iconAfter={CaretDownIcon}>
+                          Filter
+                        </Button>
+                      </Pane>
+                    </Pane>
+                  </Pane>
+                </Pane>
+              </Card>
             </Pane>
           </Pane>
         </Pane>

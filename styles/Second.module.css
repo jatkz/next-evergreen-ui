@@ -3,12 +3,12 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
   min-height: 100vh;
 }
 
-.width {
+.max {
   width: 100%;
+  height: 100%;
 }
 
 .horizontal {
@@ -16,10 +16,22 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* padding: 1rem; */
+  padding: 0.5rem;
   /* min-height: 100vh; */
 }
 
-.halves {
+.half {
   min-width: 50vw;
+}
+
+.gridcontainer {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* sets one column */
+  grid-gap: 0.25rem; /* sets the gap between items to 1rem */
+}
+
+.horizontalgridcontainer {
+  display: grid;
+  grid-template-rows: repeat(1, 1fr); /* sets one column */
+  grid-gap: 0.5rem; /* sets the gap between items to 1rem */
 }
