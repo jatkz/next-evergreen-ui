@@ -1,0 +1,25 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+.width {
+  width: 100%;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 1rem; */
+  /* min-height: 100vh; */
+}
+
+.halves {
+  min-width: 50vw;
+}
