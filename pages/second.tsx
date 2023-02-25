@@ -17,6 +17,9 @@ import {
 } from "evergreen-ui";
 import Head from "next/head";
 import styles from "@/styles/Second.module.css";
+import { LightWeightChart } from "@/components/LightWeightChart";
+import { GetServerSideProps } from "next/types";
+import { fetchTopMedium } from "./api/medium";
 
 interface Strategy {
   name: string;
@@ -117,6 +120,27 @@ const strategies: Strategy[] = [
   },
 ];
 
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+  try {
+    res.setHeader(
+      "Cache-Control",
+      "public, s-maxage=60, stale-while-revalidate=59"
+    );
+
+    return {
+      props: {
+        isConnected: true,
+        medium: await fetchTopMedium(),
+      },
+    };
+  } catch (e) {
+    console.error(e);
+    return {
+      props: { isConnected: false, medium: [] },
+    };
+  }
+};
+
 export default function Second() {
   return (
     <>
@@ -130,71 +154,71 @@ export default function Second() {
         <Pane className={styles.horizontal}>
           <Pane className={styles.half}>
             <Pane className={styles.gridcontainer}>
-              <Pane display="flex" alignItems="center" marginX={majorScale(2)}>
-                <Button>Click me!</Button>
-                <Text>This is a clickable Button</Text>
-              </Pane>
-              <Pane>
-                <Pane
-                  display="flex"
-                  alignItems="center"
-                  marginX={majorScale(2)}
-                >
-                  <Button borderColor="pink">Click me!</Button>
+              <Card
+                border="0.125rem solid"
+                borderColor="black"
+                background="tint1"
+                padding={majorScale(2)}
+                className={styles.max}
+              >
+                <Pane display="flex" alignItems="center">
+                  <Pane width={"100%"} className={styles.gridcontainer}>
+                    <Pane
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Pane>TSLA</Pane>
+                      <Pane>+$556</Pane>
+                    </Pane>
+                    <Pane
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Pane># 6sigma, easy, wide</Pane>
+                      <Pane>Score: 656</Pane>
+                    </Pane>
+                  </Pane>
                 </Pane>
-              </Pane>
-              <Pane>
-                <Pane
-                  display="flex"
-                  alignItems="center"
-                  marginX={majorScale(2)}
-                >
-                  <Button marginRight={16} intent="none">
-                    None
-                  </Button>
-                  <Button marginRight={16} intent="success">
-                    Success
-                  </Button>
-                  <Button marginRight={16} intent="danger">
-                    Danger
-                  </Button>
+              </Card>
+              <Card
+                border="0.125rem solid"
+                borderColor="black"
+                background="tint1"
+                padding={majorScale(2)}
+                height={450}
+              >
+                <LightWeightChart></LightWeightChart>
+              </Card>
+              <Card
+                border="0.125rem solid"
+                borderColor="black"
+                background="tint1"
+                padding={majorScale(2)}
+                height={450}
+              >
+                <Pane display="flex" alignItems="center">
+                  <Pane width={"100%"} className={styles.gridcontainer}>
+                    <Pane
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Pane>TSLA</Pane>
+                      <Pane>+$556</Pane>
+                    </Pane>
+                    <Pane
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Pane># 6sigma, easy, wide</Pane>
+                      <Pane>Score: 656</Pane>
+                    </Pane>
+                  </Pane>
                 </Pane>
-              </Pane>
-              <Pane>
-                <Pane
-                  display="flex"
-                  alignItems="center"
-                  marginX={majorScale(2)}
-                >
-                  <Button marginY={8} marginRight={12} iconAfter={CogIcon}>
-                    Settings
-                  </Button>
-                  <Button marginY={8} marginRight={12} iconBefore={EditIcon}>
-                    Edit
-                  </Button>
-                  <Button marginY={8} marginRight={12} iconBefore={ManualIcon}>
-                    Docs
-                  </Button>
-                  <Button
-                    marginY={8}
-                    marginRight={12}
-                    iconBefore={TrashIcon}
-                    intent="danger"
-                  >
-                    Delete...
-                  </Button>
-                  <Button marginY={8} marginRight={12} iconBefore={SearchIcon}>
-                    Search
-                  </Button>
-                  <Button
-                    marginY={8}
-                    marginRight={12}
-                    iconAfter={CaretDownIcon}
-                  >
-                    Filter
-                  </Button>
-                </Pane>
-              </Pane>
+              </Card>
               <Pane>
                 <Pane
                   display="flex"
@@ -247,28 +271,9 @@ export default function Second() {
                 borderColor="black"
                 background="tint1"
                 padding={majorScale(2)}
-                height={400}
+                height={450}
               >
-                <Pane display="flex" alignItems="center">
-                  <Pane width={"100%"} className={styles.gridcontainer}>
-                    <Pane
-                      display="flex"
-                      justifyContent="space-between"
-                      alignItems="center"
-                    >
-                      <Pane>TSLA</Pane>
-                      <Pane>+$556</Pane>
-                    </Pane>
-                    <Pane
-                      display="flex"
-                      justifyContent="space-between"
-                      alignItems="center"
-                    >
-                      <Pane># 6sigma, easy, wide</Pane>
-                      <Pane>Score: 656</Pane>
-                    </Pane>
-                  </Pane>
-                </Pane>
+                <LightWeightChart></LightWeightChart>
               </Card>
               <Card
                 border="0.125rem solid"

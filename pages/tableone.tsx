@@ -1,6 +1,7 @@
 import { Button, Pane, Text, majorScale, Table } from "evergreen-ui";
 import Head from "next/head";
 import styles from "@/styles/First.module.css";
+import { LightWeightChart } from "@/components/LightWeightChart";
 
 const profiles = [
   "RSI",
@@ -23,7 +24,8 @@ export default function TableOne() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Table.Head>
+        <LightWeightChart></LightWeightChart>
+        {/* <Table.Head>
           <Table.SearchHeaderCell
             onChange={(value) => console.log(value)}
             placeholder="Search by email..."
@@ -49,7 +51,8 @@ export default function TableOne() {
               ))}
             </Table.Row>
           ))}
-        </Table.Body>
+        </Table.Body> */}
+        {/* <LightCharts /> */}
       </main>
     </>
   );
