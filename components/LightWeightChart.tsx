@@ -13,14 +13,12 @@ export const ChartComponent = (props: any) => {
     candlesData,
     colors: {
       backgroundColor = "#131722",
-      lineColor = "#2962FF",
       textColor = "#d1d4dc",
-      areaTopColor = "#2962FF",
-      areaBottomColor = "rgba(41, 98, 255, 0.28)",
+      // lineColor = "#2962FF",
+      // areaTopColor = "#2962FF",
+      // areaBottomColor = "rgba(41, 98, 255, 0.28)",
     } = {},
   } = props;
-
-  console.log(candlesData);
 
   const chartContainerRef = useRef<any>();
 
@@ -103,10 +101,10 @@ export const ChartComponent = (props: any) => {
     data,
     candlesData,
     backgroundColor,
-    lineColor,
     textColor,
-    areaTopColor,
-    areaBottomColor,
+    // lineColor,
+    // areaTopColor,
+    // areaBottomColor,
   ]);
 
   return <div ref={chartContainerRef} />;
